@@ -27,7 +27,6 @@ const ChatLogin = () => {
         { email },
         {
           headers: {
-            'ngrok-skip-browser-warning': '1',
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('token')}`,
           },

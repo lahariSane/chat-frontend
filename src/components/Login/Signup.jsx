@@ -16,7 +16,7 @@ const Signup = ({ email, setEmail, password, setPassword, confirmPassword, setCo
     }
 
     try {
-      const response = await axios.post('http://localhost:1337/api/auth/local/register', {
+      const response = await axios.post('${process.env.REACT_APP_API}/auth/local/register', {
         username: email, // Using email as username
         email,
         password,

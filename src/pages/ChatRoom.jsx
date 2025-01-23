@@ -32,7 +32,7 @@ const ChatRoom = () => {
         async function fetchMessages(user1, user2) {
             try {
                 const response = await fetch(
-                    `http://localhost:1337/api/fetchMessages?user1=${user1}&user2=${user2}`,
+                    `${process.env.REACT_APP_API}/fetchMessages?user1=${user1}&user2=${user2}`,
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -48,7 +48,7 @@ const ChatRoom = () => {
 
         fetchMessages(localStorage.getItem('user'), localStorage.getItem('receiver'));
 
-        const socket = io('http://localhost:1337');
+        const socket = io(`${process.env.REACT_APP_BACKEND_URL}`);
         socket.on('connect', () => {
             console.log('Socket connected:', socket.id);
             socket.emit('join', { userId: localStorage.getItem('user') });
@@ -82,7 +82,7 @@ const ChatRoom = () => {
 
         try {
             const response = await axios.post(
-                'http://localhost:1337/api/sendMessage',
+                `${process.env.REACT_APP_API}/sendMessage`,
                 {
                     sender: localStorage.getItem('user'),
                     receiver: localStorage.getItem('receiver'),

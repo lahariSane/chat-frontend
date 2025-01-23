@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await fetch('http://localhost:1337/api/auth/local', {
+      const response = await fetch(`${process.env.REACT_APP_API}/auth/local`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

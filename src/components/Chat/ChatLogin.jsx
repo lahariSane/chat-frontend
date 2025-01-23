@@ -23,7 +23,7 @@ const ChatLogin = () => {
     try {
       // Make API request to check email
       const response = await axios.post(
-        `http://localhost:1337/api/checkUserEmail`,
+        `${process.env.REACT_APP_API}/checkUserEmail`,
         { email },
         {
           headers: {

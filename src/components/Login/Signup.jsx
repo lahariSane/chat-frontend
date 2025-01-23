@@ -2,11 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import InputField from './../input/InputField';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 const Signup = ({ email, setEmail, password, setPassword, confirmPassword, setConfirmPassword }) => {
   const [error, setError] = useState('');
-  const navigate = useNavigate();
   const handleSignup = async (e) => {
     e.preventDefault();
 
@@ -20,14 +18,9 @@ const Signup = ({ email, setEmail, password, setPassword, confirmPassword, setCo
         username: email, // Using email as username
         email,
         password,
-      },
-        {
-          headers: {
-            'ngrok-skip-browser-warning': '1',
-          },
-        });
+      });
       console.log(response);
-      if (response.status == 200) {
+      if (response.status === 200) {
         alert('Registration successful. Please log in.');
         window.location.reload();
       } else {

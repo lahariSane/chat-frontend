@@ -40,7 +40,8 @@ const ChatRoom = () => {
                         },
                     }
                 );
-                const data = await response.json();
+                console.log(response.data);
+                const data = response.data;
                 setMessages(data);
             } catch (err) {
                 setError('Error fetching messages. Please try again later.');

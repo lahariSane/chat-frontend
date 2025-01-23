@@ -31,10 +31,11 @@ const ChatRoom = () => {
     useEffect(() => {
         async function fetchMessages(user1, user2) {
             try {
-                const response = await fetch(
+                const response = await axios.get(
                     `${process.env.REACT_APP_API}/fetchMessages?user1=${user1}&user2=${user2}`,
                     {
                         headers: {
+                            'ngrok-skip-browser-warning': '1',
                             Authorization: `Bearer ${localStorage.getItem('token')}`,
                         },
                     }
@@ -90,6 +91,7 @@ const ChatRoom = () => {
                 },
                 {
                     headers: {
+                        'ngrok-skip-browser-warning': '1',
                         Authorization: `Bearer ${localStorage.getItem('token')}`,
                     },
                 }

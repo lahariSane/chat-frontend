@@ -50,7 +50,12 @@ const ChatRoom = () => {
 
         fetchMessages(localStorage.getItem('user'), localStorage.getItem('receiver'));
 
-        const socket = io(`${process.env.REACT_APP_BACKEND_URL}`);
+        // const socket = io(`${process.env.REACT_APP_BACKEND_URL}`);
+        const socket = io(`${process.env.REACT_APP_BACKEND_URL}`, {
+            extraHeaders: {
+              'ngrok-skip-browser-warning': 'true', // Custom header
+              },
+          });
         socket.on('connect', () => {
             console.log('Socket connected:', socket.id);
             socket.emit('join', { userId: localStorage.getItem('user') });

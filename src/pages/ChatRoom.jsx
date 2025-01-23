@@ -37,7 +37,6 @@ const ChatRoom = () => {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`,
                             "User-Agent": "lahari",
-                            'ngrok-skip-browser-warning': 'true',
                         },
                     }
                 );
@@ -50,7 +49,6 @@ const ChatRoom = () => {
 
         fetchMessages(localStorage.getItem('user'), localStorage.getItem('receiver'));
 
-        // const socket = io(`${process.env.REACT_APP_BACKEND_URL}`);
         const socket = io(`${process.env.REACT_APP_BACKEND_URL}`, {
             extraHeaders: {
               'ngrok-skip-browser-warning': 'true', // Custom header

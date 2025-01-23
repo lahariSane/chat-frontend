@@ -36,7 +36,7 @@ const ChatRoom = () => {
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`,
-                            "User-Agent": "lahari",
+                            "ngrok-skip-browser-warning": "true",
                         },
                     }
                 );
